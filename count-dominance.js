@@ -7,15 +7,17 @@ const people = [
     'Elliott Reid',
     'Rupert Barton',
     'Matthew Beanland',
-    'Joseph Crone:mario-walking:',
+    'Joseph Crone',
     'Jessica Simpson',
     'Sam Ornsby',
     'Adam Watson',
-    'Lewis Thompson:safc:',
+    'Lewis Thompson',
     'Annabel Canham',
     'Gurveer Arora',
-    'Beth Pritchard:alien:',
-    'Samantha Reid'
+    'Beth Pritchard',
+    'Samantha Reid',
+    'Annabel Canham',
+    'JJ Gray'
 ]
 
 const main = () => {
@@ -26,8 +28,8 @@ const main = () => {
         if (containsLeftOrRight(data[i])) {
             let j = i-1
             let person;
-            while (!people.includes(person)) {
-                person = data[j].split("  ")[0]
+            while (!people.includes(person) && j > 0) {
+                person = data[j]?.split(" ")[0] + " " + data[j]?.split(" ")[1]?.split(":")[0]
                 j--
             }
             const dominantNostril = leftOrRight(data[i])
